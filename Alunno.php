@@ -11,6 +11,10 @@
             $this->cognome = $cognome;
             $this->eta = $eta;
         }
+        public function toString()
+        {
+            return json_encode(["nome"=>$this->nome, "cognome"=>$this->cognome, "eta"=>$this->eta]);
+        }
 
         public function getNome()
         {
