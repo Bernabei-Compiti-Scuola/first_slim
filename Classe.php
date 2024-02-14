@@ -1,25 +1,27 @@
 <?php
 require_once 'Alunno.php';
-class Classe
+class Classe 
 {
     public function __construct()
     {
         $this->studenti = array();
-        $this->studenti[0] = new Alunno("Mario", "Rossi", 18);
-        $this->studenti[1] = new Alunno("Luca", "Bianchi", 19);
-        $this->studenti[2] = new Alunno("Paolo", "Verdi", 20);
-        $this->studenti[3] = new Alunno("Giovanni", "Neri", 21);
+        $this->studenti[] = new Alunno("Mario", "Rossi", 18);
+        $this->studenti[] = new Alunno("Luca", "Bianchi", 19);
+        $this->studenti[] = new Alunno("Paolo", "Verdi", 20);
+        $this->studenti[] = new Alunno("Giovanni", "Neri", 21);
     }
 
-    public function  toString()
+    public function toString()
     {
-        $msg='';
+        //copia array perchè json non puo accedere se attributo è privato
+        $ret = array();
         foreach($this->studenti as $studente)
         {
-            $msg .= $studente->toString()."<br>";
+            $ret[] = ["nome"=>$studente->getNome(), "cognome"=>$studente->getCognome(), "eta"=>$studente->getEta()];
         }
-        return $msg;
+        return json_encode($ret);
     }
+
     public function find($nome)
     {
         foreach($this->studenti as $studente)

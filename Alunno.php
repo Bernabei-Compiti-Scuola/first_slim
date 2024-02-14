@@ -1,14 +1,9 @@
 <?php
     class Alunno
     {
-        protected  $nome;
-        protected  $cognome;
-        protected  $eta;
-
-        public function  toString()
-        {
-            return "nome: ". $this->nome.", cognome: ". $this->cognome. ",eta: " .$this->eta ;
-        }
+        private $nome;
+        private $cognome;
+        private $eta;
 
         public function Alunno($nome, $cognome, $eta)
         {
