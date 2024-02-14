@@ -7,7 +7,7 @@
 
         public function  toString()
         {
-            return "nome: ". $this->nome.", cognome: ". $this->cognome. ",eta: " .$this->eta;
+            return "nome: ". $this->nome.", cognome: ". $this->cognome. ",eta: " .$this->eta ;
         }
 
         public function Alunno($nome, $cognome, $eta)
