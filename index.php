@@ -24,6 +24,7 @@ $app->get('/alunni', function (Request $request, Response $response, $args)
 $app->get('/alunni/{nome}', function (Request $request, Response $response, $args) 
 {
     $class = new Classe();
+    
     $alunno = $class->find($args['nome']);
     if($alunno != null)
     {
