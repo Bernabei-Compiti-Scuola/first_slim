@@ -1,9 +1,9 @@
 <?php
     class Alunno
     {
-        private $nome;
-        private $cognome;
-        private $eta;
+        protected $nome;
+        protected $cognome;
+        protected $eta;
 
         public function Alunno($nome, $cognome, $eta)
         {

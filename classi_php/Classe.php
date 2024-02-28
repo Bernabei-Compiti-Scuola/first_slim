@@ -1,5 +1,5 @@
 <?php
-require_once 'Alunno.php';
+require_once './classi_php/Alunno.php';
 class Classe 
 {
     public function __construct()
