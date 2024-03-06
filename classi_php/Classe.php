@@ -33,5 +33,19 @@ class Classe
         }
         return null;
     }
+    function deleteAlunno($nome)
+    {
+        $alunno = $this->find($nome);
+        if($alunno != null)
+        {
+            $key = array_search($alunno, $this->studenti);
+            unset($this->studenti[$key]);
+            return $alunno;
+        }
+        else
+        {
+            return null;
+        }
+    }
 
 }

@@ -11,7 +11,8 @@ $app = AppFactory::create();
 $app->get('/', 'SiteController:index');
 $app->get('/alunni', 'AlunniController:alunni');
 $app->get('/alunni/{nome}', 'AlunniController:selectAlunno');
-
-
+$app->post('/alunni', 'AlunniController:createAlunno');
+$app->put('/alunni/{nome}', 'AlunniController:updateAlunno');
+$app->delete('/alunni/{nome}', 'AlunniController:deleteAlunno');
 
 $app->run();
