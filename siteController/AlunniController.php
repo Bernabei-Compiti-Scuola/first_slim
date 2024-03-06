@@ -49,7 +49,7 @@ class AlunniController
     {
         $body=$request->getBody()-> getContents();
         $parseBody=json_decode($body,true);
-
+        $class= new Classe();
         $alunno = $class->find($args['nome']);
         if($alunno != null)
         {
