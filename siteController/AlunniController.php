@@ -6,7 +6,7 @@ class AlunniController
     function alunni(Request $request, Response $response, $args) 
     {
         $class = new Classe();   
-        $response->getBody()->write($class->toString());
+        $response->getBody()->write($class->jsonSerialize());
         return $response ->withHeader('Content-Type', 'application/json')->withStatus(200);
     }
 
@@ -21,7 +21,7 @@ class AlunniController
 
         $alunno=new Alunno( $nome,$cognome,$eta);
         
-        $response->getBody()->write($alunno->toString());
+        $response->getBody()->write($alunno->jsonSerialize());
 
         return $response ->withHeader('Content-Type', 'application/json')->withStatus(201);
     }
@@ -56,7 +56,7 @@ class AlunniController
             $alunno->setNome($parseBody['nome']);
             $alunno->setCognome($parseBody['cognome']);
             $alunno->setEta($parseBody['eta']);
-            $response->getBody()->write($alunno->toString());
+            $response->getBody()->write($alunno->jsonSerialize());
             return $response ->withHeader('Content-Type', 'application/json')->withStatus(200);
         }
         else
@@ -73,7 +73,7 @@ class AlunniController
         $alunno = $class->find($args['nome']);
         if($alunno != null)
         {
-            $response->getBody()->write($alunno->toString());
+            $response->getBody()->write($alunno->jsonSerialize());
             return $response ->withHeader('Content-Type', 'application/json')->withStatus(200);
         }
         else

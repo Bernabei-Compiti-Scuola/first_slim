@@ -1,6 +1,6 @@
 <?php
 require_once './classi_php/Alunno.php';
-class Classe 
+class Classe implements JsonSerializable
 {
     public function __construct()
     {
@@ -11,15 +11,11 @@ class Classe
         $this->studenti[] = new Alunno("Giovanni", "Neri", 21);
     }
 
-    public function toString()
-    {
-        //copia array perchè json non puo accedere se attributo è privato
-        $ret = array();
-        foreach($this->studenti as $studente)
-        {
-            $ret[] = ["nome"=>$studente->getNome(), "cognome"=>$studente->getCognome(), "eta"=>$studente->getEta()];
-        }
-        return json_encode($ret);
+    public function jsonSerialize(){
+        $a = [
+            "alunni"=>$this->studenti
+        ];
+        return $a;
     }
 
     public function find($nome)
