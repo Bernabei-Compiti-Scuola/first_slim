@@ -11,13 +11,23 @@ class Classe implements JsonSerializable
         $this->studenti[] = new Alunno("Giovanni", "Neri", 21);
     }
 
-    public function jsonSerialize(){
+    /**
+     * Funzione per serializzare l'oggetto in formato JSON.
+     * @return array L'array contenente gli alunni della classe.
+     */
+    public function jsonSerialize()
+    {
         $a = [
             "alunni"=>$this->studenti
         ];
         return $a;
     }
 
+    /**
+     * Funzione per trovare un alunno nella classe dato il suo nome.
+     * @param string $nome Il nome dell'alunno da cercare.
+     * @return Alunno|null L'oggetto Alunno corrispondente al nome specificato, o null se non trovato.
+     */
     public function find($nome)
     {
         foreach($this->studenti as $studente)
@@ -29,6 +39,12 @@ class Classe implements JsonSerializable
         }
         return null;
     }
+
+    /**
+     * Funzione per eliminare un alunno dalla classe dato il suo nome.
+     * @param string $nome Il nome dell'alunno da eliminare.
+     * @return Alunno|null L'oggetto Alunno eliminato, o null se non trovato.
+     */
     function deleteAlunno($nome)
     {
         $alunno = $this->find($nome);

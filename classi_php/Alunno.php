@@ -15,6 +15,12 @@
         {
             return "Nome: " . $this->nome . ", cognome: " . $this->cognome . ", eta: " . $this->eta . ".<br>";
         }
+        
+        /**
+         * Serializes the Alunno object to JSON format.
+         *
+         * @return array The serialized Alunno object as an associative array.
+         */
         public function jsonSerialize()
         {
             $a = [
